@@ -45,7 +45,7 @@ export default function Home() {
             <h2 className="text-sm font-medium text-slate-900">
               Featured project
             </h2>
-            <span className="inline-flex items-center rounded-full bg-[#255c8f]/10 px-3 py-1 text-[11px] font-medium text-[#c7def5] border border-[#255c8f]/40">
+            <span className="inline-flex items-center rounded-full bg-[#255c8f]/10 px-3 py-1 text-[11px] font-medium text-[#255c8f] border border-[#255c8f]/40">
               Case study
             </span>
           </div>

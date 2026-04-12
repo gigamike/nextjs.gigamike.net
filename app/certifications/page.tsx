@@ -1,9 +1,13 @@
+import Image from "next/image";
+
 type Certification = {
   id: string | number;
   name: string;
+  description?: string;
+  img_url?: string;
+  credential_url?: string;
   issuer?: string;
   issued_at?: string;
-  url?: string;
 };
 
 async function getCertifications(): Promise<Certification[]> {
@@ -52,29 +56,55 @@ export default async function CertificationsPage() {
           {certifications.map((cert) => (
             <li
               key={cert.id}
-              className="rounded-xl border border-slate-200 bg-white p-4 space-y-2 shadow-sm"
+              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm flex gap-4 items-start"
             >
-              <h2 className="text-sm font-semibold text-slate-900">
-                {cert.name}
-              </h2>
-              {cert.issuer && (
-                <p className="text-xs text-slate-500">{cert.issuer}</p>
-              )}
-              {cert.issued_at && (
-                <p className="text-xs text-slate-500">
-                  Issued {new Date(cert.issued_at).toLocaleDateString()}
-                </p>
-              )}
-              {cert.url && (
+              {/* Image column */}
+              {cert.img_url && (
                 <a
-                  href={cert.url}
+                  href={cert.credential_url ?? "#"}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex text-xs font-medium text-[#c7def5] hover:text-white underline underline-offset-4"
+                  className="shrink-0"
                 >
-                  View certificate
+                  <Image
+                    src={cert.img_url}
+                    alt={cert.name}
+                    width={80}
+                    height={80}
+                    className="rounded-md object-contain"
+                  />
                 </a>
               )}
+
+              {/* Name + description column */}
+              <div className="flex-1 space-y-1 min-w-0">
+                <h2 className="text-sm font-semibold text-slate-900">
+                  {cert.name}
+                </h2>
+                {cert.description && (
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {cert.description}
+                  </p>
+                )}
+                {cert.issuer && (
+                  <p className="text-xs text-slate-500">{cert.issuer}</p>
+                )}
+                {cert.issued_at && (
+                  <p className="text-xs text-slate-500">
+                    Issued {new Date(cert.issued_at).toLocaleDateString()}
+                  </p>
+                )}
+                {cert.credential_url && (
+                  <a
+                    href={cert.credential_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex text-xs font-medium text-[#255c8f] hover:underline underline-offset-4"
+                  >
+                    View certificate →
+                  </a>
+                )}
+              </div>
             </li>
           ))}
         </ul>
