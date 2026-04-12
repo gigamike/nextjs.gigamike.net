@@ -106,10 +106,10 @@ export default function ContactPage() {
               <li>
                 <span className="text-slate-400">Email:</span>{" "}
                 <a
-                  href="mailto:hello@gigamike.net"
+                  href="mailto:gigamike@gigamike.net"
                   className="text-[#c7def5] hover:text-white"
                 >
-                  hello@gigamike.net
+                  gigamike@gigamike.net
                 </a>
               </li>
               <li>
