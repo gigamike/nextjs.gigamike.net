@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutPage() {
   return (
     <section className="space-y-8">
@@ -10,8 +12,19 @@ export default function AboutPage() {
         </h1>
       </header>
 
-      <div className="grid gap-10 md:grid-cols-[minmax(0,2fr),minmax(0,1.4fr)]">
-        <article className="space-y-4 text-sm md:text-base leading-relaxed text-slate-700">
+      {/* Photo + bio row */}
+      <div className="flex flex-col sm:flex-row items-start gap-6">
+        <div className="shrink-0">
+          <Image
+            src="/michael-galon.jpg"
+            alt="Michael Gerard Galon"
+            width={160}
+            height={160}
+            className="rounded-2xl object-cover shadow-md"
+            priority
+          />
+        </div>
+        <div className="space-y-3 text-sm md:text-base leading-relaxed text-slate-700">
           <p>
             Hello! I&apos;m Michael Gerard Galon a.k.a. GigaMike. I am a Full
             Stack Developer with extensive real-world experience. I consider
@@ -21,8 +34,16 @@ export default function AboutPage() {
           <p>
             My commitment includes providing well documented and extensible
             projects that my clients can extend and maintain for years after I
-            am gone. Clean architecture, predictable deployments, and practical
-            DX matter just as much to me as the UI that users see.
+            am gone.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid gap-10 md:grid-cols-[minmax(0,2fr),minmax(0,1.4fr)]">
+        <article className="space-y-4 text-sm md:text-base leading-relaxed text-slate-700">
+          <p>
+            Clean architecture, predictable deployments, and practical DX
+            matter just as much to me as the UI that users see.
           </p>
           <p>
             I am open to work on projects from anywhere. Thank you for your
