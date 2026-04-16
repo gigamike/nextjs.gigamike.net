@@ -87,9 +87,10 @@ export default function Home() {
           </h2>
           <ul className="space-y-2 text-sm text-slate-700">
             <li>✅ Scalable web applications and internal tools</li>
-            <li>✅ Stripe, payment flows, and subscription systems</li>
             <li>✅ AI-powered features and workflow automation</li>
             <li>✅ CRM systems and custom business platforms</li>
+            <li>✅ Call center in the clouds using Amazon Connect with AI</li>
+            <li>✅ Stripe, payment flows, and subscription systems</li>
           </ul>
         </section>
       </div>
